@@ -1,22 +1,24 @@
-import React, {FC} from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { FC } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import {CalculatorPage, ManagementPage} from "./pages";
-import {Layout} from './components';
+import { CalculatorPage, ManagementPage } from "./pages";
+import { Layout } from "./components";
 import "./App.css";
 
 const App: FC = () => {
-  return <div>
+  return (
+    <div>
       <Routes>
-          <Route path={'/'} element={<Layout/>}>
-              <Route index element={<Navigate to={'home'} />} />
+        <Route path={"/"} element={<Layout />}>
+          <Route index element={<Navigate to={"home"} />} />
 
-              <Route path={'home'} element = {<ManagementPage/>}>
-                  <Route path={'calculator'} element = {<CalculatorPage/>}/>
-              </Route>
+          <Route path={"home"} element={<ManagementPage />}>
+            <Route path={"calculator"} element={<CalculatorPage />} />
           </Route>
+        </Route>
       </Routes>
-  </div>;
-}
+    </div>
+  );
+};
 
 export default App;
