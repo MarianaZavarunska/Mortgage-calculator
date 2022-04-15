@@ -1,7 +1,22 @@
+import React, {FC} from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+import {CalculatorPage, ManagementPage} from "./pages";
+import {Layout} from './components';
 import "./App.css";
 
-function App() {
-  return <div></div>;
+const App: FC = () => {
+  return <div>
+      <Routes>
+          <Route path={'/'} element={<Layout/>}>
+              <Route index element={<Navigate to={'home'} />} />
+
+              <Route path={'home'} element = {<ManagementPage/>}>
+                  <Route path={'calculator'} element = {<CalculatorPage/>}/>
+              </Route>
+          </Route>
+      </Routes>
+  </div>;
 }
 
 export default App;
