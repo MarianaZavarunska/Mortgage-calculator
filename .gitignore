@@ -3,6 +3,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/.idea
+/.DS_Store
+.DS_Store
 
 package-lock.json
 
