@@ -8,6 +8,27 @@
 .AppleDouble
 .LSOverride
 
+.idea
+/.idea
+/idea
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Icon must end with two \r
 Icon
 
