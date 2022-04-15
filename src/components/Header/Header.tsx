@@ -4,8 +4,8 @@ import './Header.css';
 
 const Header:FC = () => {
     return (
-        <div>
-            <div>
+        <div className={'header-container'}>
+            <div className={'logo-container'}>
                 <img src={ require("../../images/logo.png") } alt={'logo.png'}/>
             </div>
             <div>Mortgage Calculator</div>

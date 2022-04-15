@@ -1,0 +1,15 @@
+.main-container{
+    text-align: center;
+}
+
+.list-container{
+
+}
+
+.list-item{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
