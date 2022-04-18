@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import { BankItem, Form, ModalWindow } from "../components";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { setModalActive } from "../store/slices";
+import { BankItem, Form, ModalWindow } from "../../components";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setModalActive } from "../../store/slices";
 
 import "./management.page.css";
 

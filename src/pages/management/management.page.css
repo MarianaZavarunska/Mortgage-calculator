@@ -8,8 +8,9 @@
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  box-shadow: 3px 3px 3px black;
+  box-shadow: 3px 3px 3px var(--black-color);
   width: 80%;
+  letter-spacing: 1px;
   margin: 50px auto;
 }
 

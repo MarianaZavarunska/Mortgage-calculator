@@ -5,12 +5,19 @@
   gap: 1rem;
 }
 
+.btn-container > a {
+  text-decoration: none;
+}
+
 .btn-container > button,
+.btn-container > a,
 .btn-create > button {
   font-family: "Square Peg", cursive;
   font-weight: 700;
   color: var(--secondary-color);
   text-transform: uppercase;
+  border: 1px solid transparent;
+  box-shadow: 1px 2px 3px var(--black-color);
   letter-spacing: 3px;
   padding: 0.6rem;
 }

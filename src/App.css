@@ -9,4 +9,6 @@
   --secondary-color: white;
   --third-color: #0b5786c9;
   --fourth-color: #ec2a35ba;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+  --black-color: black;
 }
