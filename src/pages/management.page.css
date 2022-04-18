@@ -1,15 +1,28 @@
-.main-container{
-    text-align: center;
+.btn-create {
+  text-align: center;
+  margin-top: 1.2rem;
 }
 
-.list-container{
-
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 3px 3px 3px black;
+  width: 80%;
+  margin: 50px auto;
 }
 
-.list-item{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    gap: 1rem;
+.list-container {
 }
 
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.list-item > div {
+  margin: 1.2rem;
+}

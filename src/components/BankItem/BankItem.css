@@ -1,6 +1,32 @@
-.btn-container{
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    gap: 1rem;
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-container > button,
+.btn-create > button {
+  font-family: "Square Peg", cursive;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0.6rem;
+}
+
+.btn-create > button {
+  background-color: var(--primary-color);
+}
+
+.blue {
+  background-color: var(--third-color);
+}
+
+.green {
+  background-color: var(--primary-color);
+}
+
+.red {
+  background-color: var(--fourth-color);
 }

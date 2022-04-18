@@ -16,9 +16,15 @@ const BankItem: FC<{ bank: IBank }> = ({ bank }) => {
       <div>{loanTerm} month</div>
 
       <div className={"btn-container"}>
-        <button type="button">Calculate</button>
-        <button type="button">Edit</button>
-        <button type="button">Delete</button>
+        <button type="button" className="blue">
+          Calculate
+        </button>
+        <button type="button" className="green">
+          Edit
+        </button>
+        <button type="button" className="red">
+          Delete
+        </button>
       </div>
     </>
   );
