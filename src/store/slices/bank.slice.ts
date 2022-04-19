@@ -7,7 +7,8 @@ interface IInitialState {
   editedBank: IBank;
   isModalActive: boolean;
   loanResult: number;
-  selectedBankName: string;
+  selectedBank: IBank;
+  error?: string;
 }
 
 const initialState: IInitialState = {
@@ -64,7 +65,15 @@ const initialState: IInitialState = {
 
   isModalActive: false,
   loanResult: 0,
-  selectedBankName: "",
+  selectedBank: {
+    id: undefined,
+    bankName: "",
+    interestRate: 0,
+    maxLoan: 0,
+    minDownPayment: 0,
+    loanTerm: 0,
+  },
+  error: "",
 };
 
 const bankSlice = createSlice({
@@ -93,13 +102,31 @@ const bankSlice = createSlice({
     },
 
     calculateLoan: (state, action: PayloadAction<{ loan: ILoan }>) => {
-      const { initialLoan, interestRate, loanTerm } = action.payload.loan;
+      const { initialLoan, downPayment } = action.payload.loan;
+      const minPayment =
+        (+initialLoan * state.selectedBank.minDownPayment) / 100;
 
-      state.loanResult =
-        (+initialLoan *
-          (interestRate / 12) *
-          (1 + interestRate / 12) ** loanTerm) /
-        ((1 + interestRate / 12) ** loanTerm - 1);
+      if (
+        state.selectedBank &&
+        +initialLoan < state.selectedBank.maxLoan &&
+        +downPayment >= minPayment
+      ) {
+        const { interestRate, loanTerm } = state.selectedBank;
+
+        const mortgage = +initialLoan - +downPayment;
+
+        state.loanResult =
+          (mortgage *
+            (interestRate / 12) *
+            (1 + interestRate / 12) ** loanTerm) /
+          ((1 + interestRate / 12) ** loanTerm - 1);
+      } else if (+initialLoan > state.selectedBank.maxLoan) {
+        state.loanResult = 0;
+        state.error = `Maximum loan in ${state.selectedBank.bankName} is ${state.selectedBank.maxLoan} UAH`;
+      } else if (+downPayment < minPayment) {
+        state.loanResult = 0;
+        state.error = `Minimum down payment in ${state.selectedBank.bankName} is equal or grater than ${minPayment} UAH`;
+      }
     },
 
     setEditedBank: (state, action: PayloadAction<{ bank: IBank }>) => {
@@ -110,8 +137,13 @@ const bankSlice = createSlice({
       state.isModalActive = !state.isModalActive;
     },
 
-    setBankId: (state, action: PayloadAction<{ bankName: string }>) => {
-      state.selectedBankName = action.payload.bankName;
+    setSelectedBank: (
+      state,
+      action: PayloadAction<{ bankId: number | undefined }>
+    ) => {
+      const bankId = action.payload.bankId ? action.payload.bankId : 0;
+      state.selectedBank =
+        state.banks.find((i) => i.id === bankId) ?? state.banks[0];
     },
   },
 });
@@ -124,7 +156,8 @@ export const {
   deleteBank,
   setEditedBank,
   setModalActive,
-  setBankId,
+  calculateLoan,
+  setSelectedBank,
 } = bankSlice.actions;
 
 export { bankReducer };

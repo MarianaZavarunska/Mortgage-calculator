@@ -10,6 +10,5 @@ export interface IBank {
 export interface ILoan {
   initialLoan: string;
   downPayment: string;
-  interestRate: number;
-  loanTerm: number;
+  selectedBank: string;
 }

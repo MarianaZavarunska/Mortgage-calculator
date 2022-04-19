@@ -22,7 +22,7 @@ const BankItem: FC<{ bank: IBank }> = ({ bank }) => {
       <div>{loanTerm} month</div>
 
       <div className={"btn-container"}>
-        <Link to={`/calculator/${id}`} state={{ bank }} className="blue">
+        <Link to={`/calculator/${id}`} className="blue">
           Calculate
         </Link>
 

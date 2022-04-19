@@ -14,9 +14,6 @@
   margin: 50px auto;
 }
 
-.list-container {
-}
-
 .list-item {
   display: flex;
   justify-content: space-between;
@@ -26,4 +23,23 @@
 
 .list-item > div {
   margin: 1.2rem;
+}
+.list-item > div:nth-of-type(6) {
+  margin-left: 40px;
+}
+
+.column {
+  font-family: "Square Peg", cursive;
+  font-size: 1.6rem;
+  gap: 2.2rem;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.column > div {
+  margin: 10px;
+}
+
+.column > div:last-of-type {
+  margin-left: -18px;
 }

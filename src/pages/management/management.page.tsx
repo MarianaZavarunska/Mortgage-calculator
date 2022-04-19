@@ -18,6 +18,14 @@ const ManagementPage: FC = () => {
       </div>
       <div className={"main-container"}>
         <ul className={"list-container"}>
+          <li className={"list-item column"}>
+            <div> 0 </div>
+            <div> BankName: </div>
+            <div>Interest Rate</div>
+            <div>Max loan</div>
+            <div>Min down payment</div>
+            <div>Loan term</div>
+          </li>
           {banks &&
             banks.map((bank) => (
               <li key={bank.id} className={"list-item"}>
