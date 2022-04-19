@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { bankReducer } from "./slices";
+import { bankReducer, userReducer } from "./slices";
 
 const rootReducer = combineReducers({
   bankReducer,
+  userReducer,
 });
 
 export const setUpStore = () =>

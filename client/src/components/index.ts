@@ -4,3 +4,6 @@ export * from "./BankItem/BankItem";
 export * from "./Form/Form";
 export * from "./ModalWindow/ModalWindow";
 export * from "./DropDownList/DropDownList";
+export * from "./FormRegister/FormRegister";
+export * from "./FormLogIn/FormLogIn";
+export * from "./ModalUserWindow/ModalUserWindow";

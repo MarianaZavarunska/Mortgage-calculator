@@ -1,0 +1,40 @@
+form.logIn-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+.logIn-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.logIn-content > input {
+  /* color: var(--primary-color); */
+  width: 300px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container > button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+/* .error-container {
+  font-size: 0.9rem;
+  color: red;
+} */
