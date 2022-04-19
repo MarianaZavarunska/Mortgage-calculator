@@ -68,6 +68,7 @@ export const userSlice = createSlice({
     setRegisterActive: (state) => {
       //   state.isLoginActive = false;
       state.isRegisterActive = !state.isRegisterActive;
+      state.isLoginActive = false;
     },
     setLoginActive: (state) => {
       state.isLoginActive = !state.isLoginActive;

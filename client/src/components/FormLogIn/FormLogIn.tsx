@@ -42,6 +42,7 @@ const FormLogIn: FC = () => {
         <div className="btn-container">
           <button type="submit">Log In</button>
           <button
+            type="button"
             onClick={() => {
               dispatch(setRegisterActive());
             }}
