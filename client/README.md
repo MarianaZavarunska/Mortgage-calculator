@@ -45,6 +45,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+<!--
 Завдання
 
 1. Сторінка перша - відображаємо банки,створюємо, редагуємо, видаляємо або обчислюємо місячну плату за кредит в цьому банку. Кнопка обчислити - це перехід на сторінку два, де виконуємо обчислення.
@@ -67,4 +68,4 @@ Backend
 
 8.  MySql DB (Користувалась MySqlWorkbench)
 
-9.  код написаний в програмі VS code і WebStorm( встановлений eslint)
+9.  код написаний в програмі VS code і WebStorm( встановлений eslint) -->
