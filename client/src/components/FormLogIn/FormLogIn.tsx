@@ -1,20 +1,25 @@
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
+import { joiResolver } from "@hookform/resolvers/joi";
 
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppDispatch } from "../../hooks";
 import { IUser } from "../../interfaces/user.interface";
 import { logIn, setLoginActive, setRegisterActive } from "../../store/slices";
-
+import { userValidator } from "../../validator/user.validator";
 import "./FormLogIn.css";
 
 const FormLogIn: FC = () => {
-  const { register, handleSubmit, reset } = useForm<{
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<{
     email: string;
     password: string;
-  }>();
+  }>({ resolver: joiResolver(userValidator.logIn), mode: "onTouched" });
 
   const dispatch = useAppDispatch();
-  // const { isLoginActive } = useAppSelector((state) => state.userReducer);
 
   const onSubmitForm = async (data: Partial<IUser>) => {
     await dispatch(logIn(data));
@@ -29,17 +34,17 @@ const FormLogIn: FC = () => {
           <label>Login</label>
           <input type="text" {...register("email")} />
 
-          {/* {errors.email && (
+          {errors.email && (
             <div className="error-container">{errors.email.message}</div>
-          )} */}
+          )}
         </div>
         <div className="logIn-content">
           <label>Password</label>
           <input type="text" {...register("password")} />
 
-          {/* {errors.password && (
+          {errors.password && (
             <div className="error-container">{errors.password.message}</div>
-          )} */}
+          )}
         </div>
         <div className="btn-container">
           <button type="submit">Log in</button>

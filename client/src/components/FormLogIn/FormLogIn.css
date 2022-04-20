@@ -33,7 +33,8 @@ form.logIn-form {
   margin: 5px;
 }
 
-/* .error-container {
-  font-size: 0.9rem;
+.error-container {
+  font-size: 1rem;
+  font-family: "Times New Roman", Times, serif;
   color: red;
-} */
+}
