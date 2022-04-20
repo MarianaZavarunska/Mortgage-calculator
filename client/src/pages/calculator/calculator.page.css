@@ -24,3 +24,23 @@ h3 {
   width: 400px;
   font-size: 1.3rem;
 }
+.loan-result-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.loan-result-container > div {
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  padding: 10px;
+  margin-left: 13%;
+}
+
+.helper {
+  width: 200px;
+}
+
+.loan-result-container > div > p:first-of-type {
+  font-weight: 800;
+  color: var(--primary-color);
+}

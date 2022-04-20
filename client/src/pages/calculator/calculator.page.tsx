@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
@@ -71,6 +71,7 @@ const CalculatorPage: FC = () => {
             <p>First payment: </p>
           </div>
         )}
+        <div className="helper"> </div>
       </div>
     </>
   );

@@ -11,19 +11,19 @@ export class User extends CommonFields implements IUserEntity {
         width: 255,
         nullable: false,
     })
-        firstName: string;
+    firstName: string;
 
     @Column({
         type: 'varchar',
         width: 255,
         nullable: false,
     })
-        lastName: string;
+    lastName: string;
 
     @Column({
         type: 'int',
     })
-        age: number;
+    age: number;
 
     @Column({
         type: 'varchar',
@@ -31,7 +31,7 @@ export class User extends CommonFields implements IUserEntity {
         unique: true,
         nullable: false,
     })
-        phone: string;
+    phone: string;
 
     @Column({
         type: 'varchar',
@@ -39,18 +39,13 @@ export class User extends CommonFields implements IUserEntity {
         unique: true,
         nullable: false,
     })
-        email: string;
+    email: string;
 
     @Column({
         type: 'varchar',
         width: 255,
         nullable: false,
     })
-        password: string;
+    password: string;
 
-    @Column({
-        type: 'varchar',
-        width: 250,
-    })
-        avatar: string;
 }
