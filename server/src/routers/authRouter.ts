@@ -12,4 +12,4 @@ router.post('/login', authValidationMiddleware.validateLoginUser, userMiddleware
 router.post('/logout', authMiddleware.checkAccessToken, authController.logout);
 
 
-export const authRouter = router;
+ export const authRouter = router;

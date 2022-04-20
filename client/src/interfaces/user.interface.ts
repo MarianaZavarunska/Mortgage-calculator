@@ -18,3 +18,15 @@ export interface IResponse {
   refreshToken?: string;
   user?: IUser;
 }
+
+export interface ILogOutRequest extends Partial<IUser> {
+  accessToken?: string;
+}
+
+export interface IResult extends Partial<IUser> {
+  bankName: string;
+  loanTerm: number;
+  initialLoan: string;
+  downPayment: string;
+  loanResult: number;
+}

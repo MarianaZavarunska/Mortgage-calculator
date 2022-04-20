@@ -4,4 +4,5 @@ export const backURL = {
   registartion: "/auth/registration",
   login: "/auth/login",
   logout: "/auth/logout",
+  result: "/result",
 };

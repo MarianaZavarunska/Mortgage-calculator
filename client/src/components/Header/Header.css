@@ -25,6 +25,11 @@
   height: 100%;
   margin-bottom: -5px;
 }
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
 .btn-login > button {
   font-family: "Square Peg", cursive;

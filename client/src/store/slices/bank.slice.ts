@@ -10,6 +10,8 @@ interface IInitialState {
   loanResult: number;
   selectedBank: IBank;
   error?: string;
+  downPayment: string;
+  initialLoan: string;
 }
 
 const initialState: IInitialState = {
@@ -75,6 +77,8 @@ const initialState: IInitialState = {
     loanTerm: 0,
   },
   error: "",
+  downPayment: "",
+  initialLoan: "",
 };
 
 const bankSlice = createSlice({
@@ -104,8 +108,12 @@ const bankSlice = createSlice({
 
     calculateLoan: (state, action: PayloadAction<{ loan: ILoan }>) => {
       const { initialLoan, downPayment } = action.payload.loan;
+
       const minPayment =
         (+initialLoan * state.selectedBank.minDownPayment) / 100;
+
+      state.downPayment = downPayment;
+      state.initialLoan = initialLoan;
 
       if (
         state.selectedBank &&
@@ -113,14 +121,16 @@ const bankSlice = createSlice({
         +downPayment >= minPayment
       ) {
         const { interestRate, loanTerm } = state.selectedBank;
-
         const mortgage = +initialLoan - +downPayment;
 
-        state.loanResult =
+        state.error = "";
+
+        state.loanResult = Math.round(
           (mortgage *
             (interestRate / 12) *
             (1 + interestRate / 12) ** loanTerm) /
-          ((1 + interestRate / 12) ** loanTerm - 1);
+            ((1 + interestRate / 12) ** loanTerm - 1)
+        );
       } else if (+initialLoan > state.selectedBank.maxLoan) {
         state.loanResult = 0;
         state.error = `Maximum loan in ${state.selectedBank.bankName} is ${state.selectedBank.maxLoan} UAH`;

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { DropDownList } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { ILoan } from "../../interfaces/bank.interface";
-import { calculateLoan, setSelectedBank } from "../../store/slices";
+import { calculateLoan, sendResult, setSelectedBank } from "../../store/slices";
 import "./calculator.page.css";
 
 // interface ILocationState {
@@ -21,9 +21,10 @@ const CalculatorPage: FC = () => {
   const { register, handleSubmit, reset } = useForm<{ loan: ILoan }>();
   const dispatch = useAppDispatch();
 
-  const { selectedBank, loanResult, error, banks } = useAppSelector(
-    (state) => state.bankReducer
-  );
+  const { selectedBank, loanResult, error, banks, downPayment, initialLoan } =
+    useAppSelector((state) => state.bankReducer);
+
+  const { user, message } = useAppSelector((state) => state.userReducer);
 
   const defaultBank =
     banks.find((item) => item.id === (bankId ? +bankId : -1)) ?? banks[0];
@@ -32,8 +33,19 @@ const CalculatorPage: FC = () => {
     dispatch(setSelectedBank({ bankId: bankId ? +bankId : -1 }));
   }, []);
 
-  const onSubmitForm: SubmitHandler<{ loan: ILoan }> = (loan) => {
-    dispatch(calculateLoan(loan));
+  const onSubmitForm: SubmitHandler<{ loan: ILoan }> = async (loan) => {
+    await dispatch(calculateLoan(loan));
+
+    const result = {
+      firstName: user?.firstName,
+      email: user?.email,
+      bankName: selectedBank.bankName,
+      loanTerm: +selectedBank.loanTerm,
+      initialLoan,
+      downPayment,
+      loanResult,
+    };
+    await dispatch(sendResult(result));
 
     reset();
   };
@@ -64,12 +76,16 @@ const CalculatorPage: FC = () => {
       <div className="loan-result-container">
         {error ? (
           <p>{error}</p>
-        ) : (
+        ) : loanResult ? (
           <div>
-            <p>Result: {loanResult} UAH/month</p>
+            <p>InitialLoan: {initialLoan} UAH</p>
+            <p>First payment: {downPayment} UAH</p>
             <p>Term: {selectedBank.loanTerm} month</p>
-            <p>First payment: </p>
+            <p>Result: {loanResult} UAH/month </p>
+            {message && <span>({message})</span>}
           </div>
+        ) : (
+          <div></div>
         )}
         <div className="helper"> </div>
       </div>

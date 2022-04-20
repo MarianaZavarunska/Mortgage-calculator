@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setModalActive } from "../../store/slices";
+import { setUserModalActive } from "../../store/slices";
 
 import "./ModalUserWindow.css";
 
@@ -14,7 +14,7 @@ const ModalUserWindow: FC = ({ children }) => {
     <div
       className={isLoginActive || isRegisterActive ? "modal active" : "modal"}
       onClick={() => {
-        dispatch(setModalActive());
+        dispatch(setUserModalActive());
       }}
     >
       <div

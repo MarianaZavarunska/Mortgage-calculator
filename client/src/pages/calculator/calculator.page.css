@@ -33,14 +33,21 @@ h3 {
   letter-spacing: 1px;
   font-size: 1.1rem;
   padding: 10px;
-  margin-left: 13%;
+  margin-left: 16%;
 }
 
 .helper {
   width: 200px;
 }
 
-.loan-result-container > div > p:first-of-type {
+.loan-result-container > div > p:last-of-type {
   font-weight: 800;
   color: var(--primary-color);
+}
+
+span {
+  font-family: "Square Peg", cursive;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  font-weight: 800;
 }

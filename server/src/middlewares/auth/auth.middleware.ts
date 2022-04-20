@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express';
 
-import { IRequestExtended } from '../../interfaces';
+import {IRequestExtended} from '../../interfaces';
 import { ErrorHandler } from '../../error/error.handler';
 import { tokenService, userService } from '../../services';
 import { tokenRepository } from '../../repositories/token/token.repository';
@@ -8,7 +8,8 @@ import { tokenRepository } from '../../repositories/token/token.repository';
 class AuthMiddleware {
     public async checkAccessToken(req: IRequestExtended, res: Response, next: NextFunction) {
         try {
-            const accessToken = req.get('Authorization');
+            // const accessToken = req.get('Authorization');
+            const  {accessToken} = req.body;
 
             if (!accessToken) {
                 next(new ErrorHandler('No token'));

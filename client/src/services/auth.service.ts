@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 
 import { backURL } from "../constants/urls";
 import axiosTemplate from "../http/axios";
-import { IResponse, IUser } from "../interfaces/user.interface";
+import { ILogOutRequest, IResponse, IUser } from "../interfaces/user.interface";
 
 class AuthService {
   public async registartion(data: IUser): Promise<AxiosResponse<IResponse>> {
@@ -13,8 +13,8 @@ class AuthService {
     return axiosTemplate.post<IResponse>(`${backURL.login}`, data);
   }
 
-  public async logout(): Promise<string> {
-    return axiosTemplate.post(`${backURL.logout}`);
+  public async logout(data: ILogOutRequest): Promise<AxiosResponse<string>> {
+    return axiosTemplate.post(`${backURL.logout}`, data);
   }
 }
 

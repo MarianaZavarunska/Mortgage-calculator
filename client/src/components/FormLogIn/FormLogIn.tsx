@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { IUser } from "../../interfaces/user.interface";
-import { login, setRegisterActive } from "../../store/slices";
+import { logIn, setLoginActive, setRegisterActive } from "../../store/slices";
 
 import "./FormLogIn.css";
 
@@ -14,9 +14,11 @@ const FormLogIn: FC = () => {
   }>();
 
   const dispatch = useAppDispatch();
+  // const { isLoginActive } = useAppSelector((state) => state.userReducer);
 
   const onSubmitForm = async (data: Partial<IUser>) => {
-    dispatch(login(data));
+    await dispatch(logIn(data));
+    dispatch(setLoginActive());
     reset();
   };
 
@@ -40,7 +42,7 @@ const FormLogIn: FC = () => {
           )} */}
         </div>
         <div className="btn-container">
-          <button type="submit">Log In</button>
+          <button type="submit">Log in</button>
           <button
             type="button"
             onClick={() => {
