@@ -34,6 +34,6 @@
   background-color: var(--primary-color);
 }
 
-.red {
+.btn-container > button.red {
   background-color: var(--fourth-color);
 }
