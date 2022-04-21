@@ -60,11 +60,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 5. Реєстрація, логін і логаут юзера.
 
 6. Валідація логін форми (email: mail@gmail.com; password: 00001abCd)
+7.Потрібно пофіксати кейс з відправкою емейлу коли error в down payment input. Оскільки async/await з dispath(синхронна функція) не працюють.
+
 
 Backend
 
-7.  для аторизації використовувала JWT TOKENS
+8.  для аторизації використовувала JWT TOKENS
 
-8.  MySql DB (Користувалась MySqlWorkbench)
+9.  MySql DB (Користувалась MySqlWorkbench)
 
-9.  код написаний в програмі VS code і WebStorm( встановлений eslint)
+10.  код написаний в програмі VS code і WebStorm( встановлений eslint)
