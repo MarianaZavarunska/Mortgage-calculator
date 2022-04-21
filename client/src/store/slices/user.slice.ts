@@ -119,7 +119,7 @@ export const userSlice = createSlice({
       state.user = action.payload.user;
       state.isRegisterActive = false;
 
-      console.log(state.user);
+      // console.log(state.user);
     });
 
     builder.addCase(logIn.fulfilled, (state, action) => {
@@ -127,7 +127,7 @@ export const userSlice = createSlice({
       state.refreshToken = action.payload.refreshToken;
       state.user = action.payload.user;
 
-      console.log(state.user);
+      // console.log(state.user);
     });
 
     builder.addCase(logOut.fulfilled, (state, action) => {
@@ -136,12 +136,12 @@ export const userSlice = createSlice({
       state.user = undefined;
       state.isLoginActive = false;
 
-      console.log("ok", action.payload?.data);
+      // console.log("ok", action.payload?.data);
     });
 
     builder.addCase(sendResult.fulfilled, (state) => {
       state.message = `The result was send to your email, ${state.user?.firstName} !`;
-      console.log(state.message);
+      // console.log(state.message);
     });
   },
 });

@@ -133,10 +133,10 @@ const bankSlice = createSlice({
         );
       } else if (+initialLoan > state.selectedBank.maxLoan) {
         state.loanResult = 0;
-        state.error = `Maximum loan in ${state.selectedBank.bankName} is ${state.selectedBank.maxLoan} UAH`;
+        state.error = `The maximum loan in ${state.selectedBank.bankName} is ${state.selectedBank.maxLoan} UAH`;
       } else if (+downPayment < minPayment) {
         state.loanResult = 0;
-        state.error = `Minimum down payment in ${state.selectedBank.bankName} is equal or grater than ${minPayment} UAH`;
+        state.error = `The minimum down payment in ${state.selectedBank.bankName} is equal or grater than ${minPayment} UAH`;
       }
     },
 

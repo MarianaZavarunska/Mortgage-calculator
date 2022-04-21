@@ -29,6 +29,10 @@ h3 {
   justify-content: space-around;
 }
 
+.loan-result-container > p {
+  color: var(--fourth-color);
+}
+
 .loan-result-container > div {
   letter-spacing: 1px;
   font-size: 1.1rem;

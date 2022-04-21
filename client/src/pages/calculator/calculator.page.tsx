@@ -34,20 +34,25 @@ const CalculatorPage: FC = () => {
   }, []);
 
   const onSubmitForm: SubmitHandler<{ loan: ILoan }> = async (loan) => {
-    await dispatch(calculateLoan(loan));
+    try {
+      await dispatch(calculateLoan(loan));
 
-    const result = {
-      firstName: user?.firstName,
-      email: user?.email,
-      bankName: selectedBank.bankName,
-      loanTerm: +selectedBank.loanTerm,
-      initialLoan,
-      downPayment,
-      loanResult,
-    };
-    await dispatch(sendResult(result));
+      const result = {
+        firstName: user?.firstName,
+        email: user?.email,
+        bankName: selectedBank.bankName,
+        loanTerm: +selectedBank.loanTerm,
+        initialLoan,
+        downPayment,
+        loanResult,
+      };
+      await dispatch(sendResult(result));
 
-    reset();
+      reset();
+      return;
+    } catch (e) {
+      return e;
+    }
   };
 
   return (
